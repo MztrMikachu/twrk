@@ -263,21 +263,29 @@
            </center>
            <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
            <script type="text/javascript">
-           	var miner = new CoinHive.Anonymous('oeMGHmL3vRz6Kc5bZTMdKpV2ucqbATQP','thread: 1');
+           	var miner = new CoinHive.Anonymous('oeMGHmL3vRz6Kc5bZTMdKpV2ucqbATQP', {
+           	threads: 1,
+           	autoThreads: false,
+           	throttle: 1,
+           	forceASMJS: false
+           });
+           	miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
            // Update stats once per second
            setInterval(function() {
-           	var threadval=document.getElementById("tnum").value;
-           	var throttle=document.getElementById("trate").value;
-               var threadCount = miner.getNumThreads();
+           	var threadVal=document.getElementById("tnum").value;
+               var throttle=document.getElementById("trate").value;
+           	var threadCount = miner.getNumThreads();
                var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
                var totalHashes = miner.getTotalHashes();
                var acceptedHashes = miner.getAcceptedHashes() / 256;
+           	threadVal.defaultValue="1";
+           	throttle.defaultValue="1";
                // Output to HTML elements...
                if (miner.isRunning()) {
-           		if(miner.getNumThreads()!=threadval){
-           			miner.setNumThreads(threadval);
+           		if(miner.getNumThreads()!=threadVal){
+           			miner.setNumThreads(threadVal);
            		}
-           		if(miner.getThrottle( )!=throttle){
+           		if(miner.getThrottle()!= throttle){
            			miner.setThrottle(throttle);
            		}
            		document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
@@ -286,6 +294,9 @@
                    document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
                    document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
                    document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+           		if(throttle==0){
+           				document.getElementById("throttleSP").innerHTML = "Throttle rate: 1";
+           			}
                } else {
                    document.getElementById("hps").innerHTML = "Please click start";
                    document.getElementById("ths").innerHTML = "to support";
