@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://twerknation.club/</loc>
-    <lastmod>2017-09-26</lastmod>
+    <loc />
+    <lastmod>2017-10-01</lastmod>
   </url>
-  <url oeid="773e3ed3-621f-47ae-b09a-ff90f6e53bbf" oelang="DEFAULT">
-    <loc>http://twerknation.club/index.htm</loc>
-    <lastmod>2017-09-26</lastmod>
+  <url oeid="5c348634-911f-4856-aba0-16f4544fe7c7" oelang="DEFAULT">
+    <loc>index.htm</loc>
+    <lastmod>2017-10-01</lastmod>
   </url>
 </urlset>
